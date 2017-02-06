@@ -2,7 +2,7 @@
 <html lang="en">
 <?php include 'includer.php';?>
 
-<title>ACHI - Login</title>
+<title>ACHI - Register</title>
 
 <head>
 
@@ -14,9 +14,7 @@
 <div class="container">
 
 
-
 <div class="col-lg-4.5 col-md-3.5 col-sm-3 col-xs-1">
-
 </div>
 
 <div class="col-lg-3 col-md-5 col-sm-6 col-xs-10 whitebg focus">
@@ -27,17 +25,20 @@
       <h2>Goals for your life.</h2>
 </div>
 
-    <form action="main.php" method="post">
+    <form action="index.php" method="post">
       <div class="form-group">
         <input type="username" class="form-control" id="username" placeholder="Username">
       </div>
       <div class="form-group">
         <input type="password" class="form-control" id="pwd" placeholder="Password">
       </div>
-      <button type="login" class="btn btn-block">Login</button>
+      <div class="form-group">
+        <input type="password" class="form-control" id="pwd" placeholder="Confirm Password">
+      </div>
+      <button type="register" class="btn btn-block">Register</button>
       </form>
       <br><br>
-    <span class="text">Not a member?</span><br><br><a href="register.php">Register now</a>
+    <span class="text">Already have an account?</span><br><br><a href="index.php">Log in here</a>
       <br><br><br>
 
 
@@ -46,7 +47,6 @@
 
 <div class="col-lg-4.5 col-md-3.5 col-sm-3 col-xs-1">
 </div>
-
 
 
 </div>

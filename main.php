@@ -34,13 +34,13 @@
 </div>
 
 <button type="default" class="default achi-button" id="button1">
-  <span class="achi-title">Programmer</span>
+  <span class="achi-title">Real World Wizard</span>
   <br><br>
   <span class="achi-desc">Learn the basics of any programming language.</span>
 </button>
 
 <button type="default" class="default achi-button" id="button2">
-  <span class="achi-title">Perfect Student</span>
+  <span class="achi-title">Nerd</span>
   <br><br>
   <span class="achi-desc">Pass an exam without a single error.</span>
 </button>
@@ -48,7 +48,7 @@
 <button type="default" class="default achi-button" id="button3">
   <span class="achi-title">Superstar</span>
   <br><br>
-  <span class="achi-desc">Perform a song live in front of 10 people or more.</span>
+  <span class="achi-desc">Perform a song live in front of 10 or more people.</span>
 </button>
 
 <button type="default" class="default achi-button" id="button4">
@@ -63,9 +63,10 @@
   <span class="achi-desc">Save someone's life.</span>
 </button>
 
-<br><br>
+
 
 <div class="div-padding">
+<br><br>
 <a href="index.php">Log out</a>
 <br><br>
 </div>

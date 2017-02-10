@@ -32,14 +32,15 @@ $points = 0;
       <h2>Goals for your life.</h2>
 </div>
 
-    <form action="main.php" method="post">
+    <form action="login_process.php" method="post">
       <div class="form-group">
-        <input type="username" class="form-control" id="username" placeholder="Username">
+        <input type="username" class="form-control" id="username" name="login_username" placeholder="Username">
       </div>
       <div class="form-group">
-        <input type="password" class="form-control" id="pwd" placeholder="Password">
+        <input type="password" class="form-control" id="pwd" name="login_password" placeholder="Password">
       </div>
-      <button type="login" class="btn btn-block">Login</button>
+      <input type="submit" class="btn btn-block" value="Login">
+      <!-- <button type="login" class="btn btn-block">Login</button> -->
       </form>
       <br><br>
     <span class="text">Not a member?</span><br><br><a href="register.php">Register now</a>

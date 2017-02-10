@@ -5,8 +5,9 @@
 
 
 <?php
-$points = 0;
-?>
+$currentID = 1;
+// CurrentID:ksi pitäisi saada oikea luku. Sessiot?
+ ?>
 
 <title>ACHI - Your Page</title>
 
@@ -19,8 +20,6 @@ $points = 0;
 
 <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
 </div>
-
-
 
 <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 whitebg focus">
 
@@ -35,13 +34,27 @@ $points = 0;
 </div>
 <div class="div-padding">
   <!-- <span>Total Achievement Points: <span id="score">0</span></span> -->
-  <span>Total Achievement Points: </span> <?php echo $points;?>
+  <span>Total Achievement Points: </span>
+<?php
+    $query = "SELECT points from account where accountID='$currentID'";
+    $result = mysqli_query($db,$query);
+    $accountcheck = $result->fetch_assoc();
+    echo $accountcheck["points"];
+?>
 </div>
 
-<form action="<?php ?>" method="post">
-<input type="submit" name="achiButton1" value="Achi1">
-<br>
-<input type="submit" name="resetButton" value="Reset">
+<form action="<?php
+    $sql = "UPDATE account SET points=10 WHERE id=$currentID";
+    mysqli_query($dbm,$sql);
+
+    if ($conn->query($sql) === TRUE) {
+        echo "Record updated successfully";
+    } else {
+        echo "Error updating record: " . $conn->error;
+    }
+    $conn->close();
+?>" method="post">
+<input type="submit" name="achiButton1" value="Add +10 Points">
 </form>
 
 <br><br>
@@ -84,12 +97,8 @@ $points = 0;
 
 </div>
 
-
-
 <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
 </div>
-
-
 
 </div>
 

@@ -2,6 +2,7 @@
 <html lang="en">
 <?php include 'includer.php';?>
 
+
 <title>ACHI - Register</title>
 
 <head>
@@ -25,17 +26,18 @@
       <h2>Goals for your life.</h2>
 </div>
 
-    <form action="index.php" method="post">
+    <form action="reg_process.php" method="POST">
       <div class="form-group">
-        <input type="username" class="form-control" id="username" placeholder="Username">
+        <input type="username" class="form-control" id="username" name="input_username" placeholder="Username">
       </div>
       <div class="form-group">
-        <input type="password" class="form-control" id="pwd" placeholder="Password">
+        <input type="password" class="form-control" id="pwd" name="input_password" placeholder="Password">
       </div>
       <div class="form-group">
-        <input type="password" class="form-control" id="pwd" placeholder="Confirm Password">
+        <input type="password" class="form-control" id="pwd" name="input_passwordagain" placeholder="Confirm Password">
       </div>
-      <button type="register" class="btn btn-block">Register</button>
+      <input type="submit" class="btn btn-block" value="Sign up">
+      <!-- <button type="register" class="btn btn-block">Sign up</button> -->
       </form>
       <br><br>
     <span class="text">Already have an account?</span><br><br><a href="index.php">Log in here</a>

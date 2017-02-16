@@ -3,10 +3,6 @@
 <?php include 'includer.php';?>
 
 
-<?php
-$points = 0;
-?>
-
 <title>ACHI - Login</title>
 
 <head>

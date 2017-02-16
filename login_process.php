@@ -13,6 +13,7 @@ if(mysqli_num_rows($result) > 0)
 {
     echo "Logged in successfully. You will be sent to the main page.";
     header("Refresh:2; url=http://localhost:8080/PHP_Project-Achievement/main.php");
+    // Miten saan tämän lähettämään accountID:n seuraavalle sivulle currentID:ksi?
 }
 else {
     echo "Invalid Username or Password. You will be sent to the login page.";

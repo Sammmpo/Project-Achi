@@ -43,17 +43,7 @@ $currentID = 1;
 ?>
 </div>
 
-<form action="<?php
-    $sql = "UPDATE account SET points=10 WHERE id=$currentID";
-    mysqli_query($dbm,$sql);
-
-    if ($conn->query($sql) === TRUE) {
-        echo "Record updated successfully";
-    } else {
-        echo "Error updating record: " . $conn->error;
-    }
-    $conn->close();
-?>" method="post">
+<form action="addpoints_process.php" method="post">
 <input type="submit" name="achiButton1" value="Add +10 Points">
 </form>
 

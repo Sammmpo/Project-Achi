@@ -5,8 +5,7 @@
 
 
 <?php
-$currentID = 1;
-// CurrentID:ksi pitäisi saada oikea luku. Sessiot?
+$currentID = $_SESSION['sessionID'];
  ?>
 
 <title>ACHI - Your Page</title>

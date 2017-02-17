@@ -3,7 +3,7 @@
 <?php include 'includer.php';?>
 
 <?php
-$currentID = 1;
+$currentID = $_SESSION['sessionID'];
 
 $sql = "UPDATE account SET points = points+10 WHERE accountID=$currentID";
 if (mysqli_query($conn, $sql)) {

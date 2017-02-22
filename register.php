@@ -36,7 +36,7 @@
       <div class="form-group">
         <input type="password" class="form-control" id="pwd" name="input_passwordagain" placeholder="Confirm Password">
       </div>
-      <input type="submit" class="btn btn-block" value="Sign up">
+      <input type="submit" class="cleanButton" value="Sign up">
       <!-- <button type="register" class="btn btn-block">Sign up</button> -->
       </form>
       <br><br>

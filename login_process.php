@@ -1,6 +1,8 @@
-
+<!DOCTYPE html>
+<html lang="en">
 <?php include 'includer.php';?>
 
+<div class="error">
 <?php
 
 $myusername = $_POST['login_username'];
@@ -14,7 +16,7 @@ if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
         $currentID = $row["accountID"];
         $_SESSION['sessionID'] = $currentID;
-        echo "Logged in successfully. You will be sent to the main page.";
+        echo "Logged in successfully. You will be sent to your page.";
         header("Refresh:3; url=http://localhost:8080/PHP_Project-Achievement/main.php");
     }
 } else {
@@ -36,3 +38,6 @@ else {
 }
 */
 ?>
+
+</div>
+</html>

@@ -6,6 +6,28 @@
 
 <?php
 $currentID = $_SESSION['sessionID'];
+
+ function achiName($db, $id) {
+   $query = "SELECT name from achievement where achiID='$id'";
+   $result = mysqli_query($db,$query);
+   $achi = $result->fetch_assoc();
+   echo $achi["name"];
+ }
+
+ function achiDesc($db, $id){
+   $query = "SELECT description from achievement where achiID='$id'";
+   $result = mysqli_query($db,$query);
+   $achi = $result->fetch_assoc();
+   echo $achi["description"];
+ }
+
+ function achiReward($db, $id){
+   $query = "SELECT reward from achievement where achiID='$id'";
+   $result = mysqli_query($db,$query);
+   $achi = $result->fetch_assoc();
+   echo $achi["reward"];
+ }
+
  ?>
 
 <title>ACHI - Your Page</title>
@@ -14,13 +36,13 @@ $currentID = $_SESSION['sessionID'];
 </head>
 
 <body>
-
+<br>
 <div class="container">
 
 <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
 </div>
 
-<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 whitebg focus">
+<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 whitebg">
 
 <div class="title">
       <h1>ACHI</h1>
@@ -29,7 +51,7 @@ $currentID = $_SESSION['sessionID'];
 </div>
 
 <div class="div-padding">
-  <span class="bolda">Click on the achievements as you complete them!</span>
+  <span class="bolda">Complete achievements for points!</span>
 </div>
 <div class="div-padding">
   <!-- <span>Total Achievement Points: <span id="score">0</span></span> -->
@@ -41,42 +63,45 @@ $currentID = $_SESSION['sessionID'];
     echo $accountcheck["points"];
 ?>
 </div>
+<br>
 
-<form action="addpoints_process.php" method="post">
-<input type="submit" name="achiButton1" value="Add +10 Points">
+
+<?php
+
+$sql = "SELECT achiID, name, description, reward FROM achievement";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+     // output data of each row
+     while($row = $result->fetch_assoc()) {
+         echo "<div class='achi-box'>";
+         echo "<span class='achi-title'>" . $row["name"] . "</span>" ;
+         echo "<br><br>";
+         echo "<span class='achi-desc'>" . $row["description"] . "</span>";
+         echo "<br><br>";
+         echo "<span class='achi-desc'>Reward: " . $row["reward"] . " points</span>";
+         echo "<br><br>";
+         $reward = $row["reward"];
+         $achiID = $row["achiID"];
+         echo "<form action='addpoints_process.php' method='post'>";
+         echo "<input type='hidden' value='$reward' name='amount'>";
+         echo "<input type='hidden' value='$achiID' name='number'>";
+         echo "<input class='achi-complete' type='submit' value='Click to Complete'></form>";
+         // echo "<span class='achi-desc'>Suggested Reward: " . $row["reward"] . " points.</span>";
+         echo "</div><br>";
+     }
+} else {
+     echo "<br><div class='noButton'><br>No achievements found. Create one!<br><br></div>";
+}
+
+$conn->close();
+
+?>
+
+<br><br><br>
+<form action="achicreation.php" method="post">
+<input class="yesButton" type="submit" value="Create New Achievement">
 </form>
-
-<br><br>
-
-<button type="default" class="default achi-button" id="button1">
-  <span class="achi-title">Achievement#1</span>
-  <br><br>
-  <span class="achi-desc">Achievement description.</span>
-</button>
-
-<button type="default" class="default achi-button" id="button2">
-  <span class="achi-title">Achievement#2</span>
-  <br><br>
-  <span class="achi-desc">Achievement description.</span>
-</button>
-
-<button type="default" class="default achi-button" id="button3">
-  <span class="achi-title">Achievement#3</span>
-  <br><br>
-  <span class="achi-desc">Achievement description.</span>
-</button>
-
-<button type="default" class="default achi-button" id="button4">
-  <span class="achi-title">Achievement#4</span>
-  <br><br>
-  <span class="achi-desc">Achievement description.</span>
-</button>
-
-<button type="default" class="default achi-button" id="button5">
-  <span class="achi-title">Achievement#5</span>
-  <br><br>
-  <span class="achi-desc">Achievement description.</span>
-</button>
 
 <div class="div-padding">
   <br><br>
@@ -90,6 +115,7 @@ $currentID = $_SESSION['sessionID'];
 </div>
 
 </div>
+<br>
 
 <script src="js/main.js"></script>
 </body>

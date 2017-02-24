@@ -23,7 +23,7 @@
 <div class="col-lg-3 col-md-5 col-sm-6 col-xs-10 whitebg focus">
 
   <div class="title">
-      <h1>ACHI</h1>
+      <h1>ACHItest</h1>
       <br>
       <h2>Goals for your life.</h2>
 </div>
